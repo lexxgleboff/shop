@@ -18,7 +18,10 @@ export default class DeviceStore {
             { id: 1, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
             { id: 2, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
             { id: 3, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
-            { id: 4, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' }
+            { id: 4, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
+            { id: 5, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
+            { id: 6, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' },
+            { id: 7, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' }
         ]
         this._selectedType = {}
         this._selectedBrand = {}
