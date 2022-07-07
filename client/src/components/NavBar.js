@@ -3,7 +3,7 @@ import { Context } from '../index';
 import {Navbar, Container, Nav, Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { SHOP_ROUTE, ADMIN_ROUTE, LOGIN_ROUTE } from '../utils/consts';
+import { SHOP_ROUTE, ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
 import { observer } from 'mobx-react-lite';
 
 
@@ -23,7 +23,8 @@ const NavBar = observer( () => {
                     </Nav>
                     :
                     <Nav className="ml-auto">
-                        <Button variant='outline-secondary' onClick={() => user.setIsAuth(true)}>Авторизация</Button>
+                        <Button variant='outline-secondary' onClick={() => navigate(REGISTRATION_ROUTE)}>Регистрация</Button>
+                        <Button variant='outline-secondary' className='ms-3' onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</Button>
                     </Nav>
                 }
             </Container>
