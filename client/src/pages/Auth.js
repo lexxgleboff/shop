@@ -1,11 +1,30 @@
-import React from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useContext, useState } from 'react';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
+import { login } from '../http/userAPI';
+import { registration } from '../http/userAPI';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
 
-const Auth = () => {
+
+const Auth = observer(() => {
+    const {user} = useContext
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const click = async () => {
+        let data
+        if (isLogin) {
+            data = await login(email, password)
+        } else {
+            data = await registration(email, password)
+        }
+        user.setUser(user)
+        user.setIsAuth(true)
+    }
+
     return (
         <Container
             className='d-flex justify-content-center align-items-center'
@@ -17,10 +36,15 @@ const Auth = () => {
                     <Form.Control
                         className='mt-3'
                         placeholder='Введите ваш email'
+                        value={ email }
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <Form.Control
                         className='mt-3'
                         placeholder='Введите ваш пароль'
+                        value={ password }
+                        onChange={e => setPassword(e.target.value)}
+                        type='password'
                     />
                     <div className='d-flex justify-content-between align-items-center mt-3'>
                         {isLogin ?
@@ -34,6 +58,7 @@ const Auth = () => {
                         }
                         <Button
                             variant={'outline-success'}
+                            onClick={click}
                         >
                             {isLogin ? 'Войти' : 'Регистрация'}
                         </Button> 
@@ -43,6 +68,6 @@ const Auth = () => {
             </Card>
         </Container>
     );
-};
+});
 
 export default Auth;
