@@ -3,13 +3,7 @@ import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 
 const DevicePage = () => {
     const device = { id: 1, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' }
-    const description = [
-        {id:1, title: 'Оперативная память', description: '12Гб'},
-        {id:1, title: 'Камера', description: '12Гб'},
-        {id:1, title: 'Процессор', description: 'ARM'},
-        {id:1, title: 'Кол-ядер', description: '4'},
-        {id:1, title: 'Аккумулятор', description: '4200'},
-    ]
+    const description = []
 
     return (
         <Container className='mt-4'>
