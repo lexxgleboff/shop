@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import { fetchOneDevice } from '../http/deviceAPI';
 
 const DevicePage = () => {
-    const device = { id: 1, name: 'Iphone 12 pro', price: 30000, img: '../server/static/e830205b-c917-4978-a104-ba7e0d989949.jpg' }
-    const description = []
+    const [device, setDevice] = useState({ info: [] })
+    const {id} = useParams()
+    useEffect(() => {
+        fetchOneDevice(id).then(data => setDevice(data))
+    }, [])
 
     return (
         <Container className='mt-4'>
@@ -12,7 +17,7 @@ const DevicePage = () => {
                     <Image
                         width={300}
                         height={300}
-                        src={device.img}
+                        src={process.env.REACT_APP_API_URL + device.img}
                         className='rounded mx-auto d-block'
                     >
 
@@ -24,7 +29,7 @@ const DevicePage = () => {
                     </div>
                 </Col>
                 <Col md={4}>
-                    {description.map((info, index) =>
+                    {device.info.map((info, index) =>
                             <Row className='g-0' key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transporent', padding: 5}}>
                                 {info.title}: {info.description}
                             </Row>
