@@ -13,7 +13,7 @@ const DeviceItem = ({ device }) => {
 
                 </Image>
                 <div className='mt-2'>
-                    <div className='text-black-50'>Samsung</div>
+                    <div className='text-black-50'>fufuy</div>
                     <div>{device.name}</div>
                 </div>
             </Card>
